@@ -10,7 +10,14 @@ import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 public final class Constants {
     /* Used for Constants Used Once On Initialization of Robot or Subsystems */
-    public final static class Setup {
+    public abstract static class ConstantsBase {
+        public double maxVoltage;
+
+        public double minPosition;
+        public double maxPosition;
+    }
+
+    public final static class Setup extends ConstantsBase {
 
         /* Swerve Module Ids and Constants */
         public static final int[] moduleIDs = new int[] {0, 1, 2, 3};
@@ -38,7 +45,7 @@ public final class Constants {
         }
     }
 
-    public final static class Swerve {
+    public final static class Swerve extends ConstantsBase {
         public static final double stickDeadband = 0.1;
         public static final double autoAimTolerance = 1.0;
 
@@ -92,7 +99,7 @@ public final class Constants {
         );
     }
     
-    public static final class Prototype {
+    public static final class Prototype extends ConstantsBase {
 
         /* Gear Ratios */
         public static final double intakeRollerReduction = 24.0/11.0; //TODO - get the actual gear ratios
@@ -103,7 +110,21 @@ public final class Constants {
 
     }
 
-    public static final class AutoConstants {
+    public static final class Elevator {
+
+        /* Gear Ratios */
+        public static final double elevatorReduction = 9.0/1.0; // TODO - 45:1 ??? (Ask Alex lol)
+
+        /* Min/Max Speeds */
+        public static final double maxVoltage = 5.5;
+
+        /* Deploy Positions */
+        public static final double minPosition = 0;
+        public static final double maxPosition = 90;
+
+    }
+
+    public static final class AutoConstants extends ConstantsBase {
         
         public static final double kPXController = 1;
         public static final double kPYController = 1;
@@ -111,7 +132,7 @@ public final class Constants {
     
     }
 
-    public final static class Electical {
+    public final static class Electical extends ConstantsBase {
 
         /* Base 12 Volt System */
         public static final double voltageComp = 12.0;
@@ -124,7 +145,7 @@ public final class Constants {
         public static final int prototypeLim = 20;  // TODO - check prototype part for actual values
     }
     
-    public final static class PID {
+    public final static class PID extends ConstantsBase {
 
         /* Format {P, I, D, FF} */
 
@@ -137,7 +158,7 @@ public final class Constants {
 
     }
 
-    public final static class SVA {
+    public final static class SVA extends ConstantsBase {
 
         /* {Static, Velocity, Acceleration} */    /* format: Ks, Kv, Ka */
         /* Swerve */
@@ -147,7 +168,7 @@ public final class Constants {
         
     }
 
-    public final static class ConversionFactors {
+    public final static class ConversionFactors extends ConstantsBase {
         /* All numbers in 1 output to required input, or one wheel spin to motor spin */
 
         /* Swerve Drive Conversions */
@@ -159,14 +180,14 @@ public final class Constants {
 
     }
 
-    public final static class IdleModes {
+    public final static class IdleModes extends ConstantsBase {
         /* Swerve Idles */
         public static final IdleMode driveIdle = IdleMode.kBrake;
         public static final IdleMode angleIdle = IdleMode.kBrake;
         public static final IdleMode prototype = IdleMode.kBrake; // TODO - check prototype part for actual values
     }
 
-    public final static class Usages {
+    public final static class Usages extends ConstantsBase {
         /* Swerve Usages */
         public static final Usage driveUsage = Usage.kAll;
         public static final Usage angleUsage = Usage.kPositionOnly;
