@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.lib.Items.SparkMax.SparkController;
 import frc.lib.configs.Sparkmax.SparkControllerInfo;
 
-import frc.robot.Constants;
 import frc.robot.SubsystemConfig;
 
 public class SubsystemCore extends SubsystemBase {
@@ -18,7 +17,6 @@ public class SubsystemCore extends SubsystemBase {
     private int id;
     private String name;
     private SparkControllerInfo scInfo;
-    private Constants.ConstantsBase constants;
 
     private SparkController controller;
     private RelativeEncoder encoder;
@@ -28,7 +26,6 @@ public class SubsystemCore extends SubsystemBase {
         this.id = config.id;
         this.name = config.name;
         this.scInfo = config.scInfo;
-        this.constants = config.constants;
 
         this.controller = new SparkController(this.id, this.scInfo);
         this.encoder = controller.sparkEncode;

@@ -11,10 +11,26 @@ import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 public final class Constants {
     /* Used for Constants Used Once On Initialization of Robot or Subsystems */
     public abstract static class ConstantsBase {
-        public double maxVoltage;
+        public static final Usage usage = Usage.kAll;
 
-        public double minPosition;
-        public double maxPosition;
+        public static final int currentLim = 40;
+        public static final double minVoltage = 1;
+        public static final double maxVoltage = 1;
+
+        public static final double gearReduction = 1.0;
+
+        public static final boolean invert = false;
+        public static final IdleMode idleMode = IdleMode.kCoast;
+
+        public static final double minPosition = 0;
+        public static final double maxPosition = 0;
+
+        public static final double posConversion = 1.0;
+        public static final double velConversion = 1.0;
+
+        public static final double[] PID = new double[] {0.0, 0.0, 0.0, 0.0};
+
+        public static final double voltageComp = 12.0;
     }
 
     public final static class Setup extends ConstantsBase {
@@ -110,18 +126,22 @@ public final class Constants {
 
     }
 
-    public static final class Elevator {
+    public static final class Elevator extends ConstantsBase {
 
-        /* Gear Ratios */
-        public static final double elevatorReduction = 9.0/1.0; // TODO - 45:1 ??? (Ask Alex lol)
+        public static final Usage usage = Usage.kPositionOnly;
 
-        /* Min/Max Speeds */
+        public static final int currentLim = 40;
         public static final double maxVoltage = 5.5;
 
-        /* Deploy Positions */
-        public static final double minPosition = 0;
+        public static final double elevatorReduction = 9.0/1.0;
+
+        public static final boolean invert = true;
+        public static final IdleMode idleMode = IdleMode.kBrake;
+
         public static final double maxPosition = 90;
 
+        public static final double[] PID = new double[] {0.02, 0.0, 0.0, 0.0};
+        
     }
 
     public static final class AutoConstants extends ConstantsBase {

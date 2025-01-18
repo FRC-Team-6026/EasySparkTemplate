@@ -18,12 +18,15 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.subsystems.Limelight;
-import frc.robot.subsystems.Prototype;
-import frc.robot.commands.DefaultCommands.TeleopSwerve;
+
+import frc.lib.configs.Sparkmax.SparkControllerInfo;
 
 import frc.robot.subsystems.Swerve;
 import frc.robot.subsystems.Test;
+import frc.robot.subsystems.Limelight;
+import frc.robot.subsystems.Prototype;
+
+import frc.robot.commands.DefaultCommands.TeleopSwerve;
 
 public class RobotContainer {
   /* Controllers */
@@ -55,20 +58,25 @@ public class RobotContainer {
   /* Subsystems */
   private final Swerve swerve = new Swerve();
   private final Limelight speakerLimelight = new Limelight("limelight");
-
-  private final SubsystemConfig config = new SubsystemConfig();
-  config.setID(id)
-      .setName(name)
-      .setSCInfo(scInfo)
-      .setConstants(constants);
-
-  private final Test test = new Test(config);
+  
+  private final SubsystemConfig config;
+  private final Test test;
 
   /* Robot Variables */
   //private final SendableChooser<Command> autoChooser;
   public RobotContainer() {
     
     configureBindings();
+
+    final SubsystemConfig config = new SubsystemConfig();
+
+    config.setID(1)
+      .setName("test")
+      .setSCInfo(new SparkControllerInfo().elevator());
+
+    final Test test = new Test(config);
+
+    this.test = test;
 
   /* 
     autoChooser = AutoBuilder.buildAutoChooser(); // Default auto will be `Commands.none()`

@@ -7,22 +7,20 @@ public class SubsystemConfig {
     public int id;
     public String name;
     public SparkControllerInfo scInfo;
-    public Constants.ConstantsBase constants;
 
-    public void setID(int id) {
+    public SubsystemConfig setID(int id) {
         this.id = id;
+        return this;
     }
 
-    public void setName(String name) {
+    public SubsystemConfig setName(String name) {
         this.name = name;
+        return this;
     }
 
-    public void setSCInfo(SparkControllerInfo scInfo) {
+    public SubsystemConfig setSCInfo(SparkControllerInfo scInfo) {
         this.scInfo = scInfo;
-    }
-
-    public void setConstants(Constants.ConstantsBase constants) {
-        this.constants = constants;
+        return this;
     }
 
 }

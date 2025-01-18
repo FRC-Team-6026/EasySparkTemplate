@@ -47,4 +47,16 @@ public class SparkControllerInfo {
         voltageComp = Electical.voltageComp;
         return this;
     }
+
+    public SparkControllerInfo elevator(){
+        canbusUse = Elevator.usage;
+        currentLim = Elevator.currentLim;
+        invert = Elevator.invert;
+        idleMode = Elevator.idleMode;
+        posConversion = Elevator.posConversion;
+        velConversion = Elevator.velConversion;
+        pidList = Elevator.PID;
+        voltageComp = Elevator.voltageComp;
+        return this;
+    }
 }
