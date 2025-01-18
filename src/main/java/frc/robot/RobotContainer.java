@@ -56,7 +56,13 @@ public class RobotContainer {
   private final Swerve swerve = new Swerve();
   private final Limelight speakerLimelight = new Limelight("limelight");
 
+  private final SubsystemConfig config = new SubsystemConfig();
+  config.setID(id)
+      .setName(name)
+      .setSCInfo(scInfo)
+      .setConstants(constants);
 
+  private final Test test = new Test(config);
 
   /* Robot Variables */
   //private final SendableChooser<Command> autoChooser;
