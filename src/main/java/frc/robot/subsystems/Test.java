@@ -2,13 +2,12 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import frc.robot.Constants;
 import frc.robot.SubsystemConfig;
 
 public class Test extends SubsystemCore{
 
-    public Test(SubsystemConfig config) {
-        super(config);
+    public Test(SubsystemConfig[] configs){
+        super(configs);
     }
 
     @Override

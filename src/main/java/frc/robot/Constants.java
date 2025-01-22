@@ -14,7 +14,6 @@ public final class Constants {
         public static final Usage usage = Usage.kAll;
 
         public static final int currentLim = 40;
-        public static final double minVoltage = 1;
         public static final double maxVoltage = 1;
 
         public static final double gearReduction = 1.0;

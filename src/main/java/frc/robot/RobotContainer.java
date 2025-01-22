@@ -59,24 +59,14 @@ public class RobotContainer {
   private final Swerve swerve = new Swerve();
   private final Limelight speakerLimelight = new Limelight("limelight");
   
-  private final SubsystemConfig config;
-  private final Test test;
+  private final SubsystemConfig[] config = {new SubsystemConfig(17, "Test", new SparkControllerInfo().elevator(), new Constants.Elevator())};
+  private final Test test = new Test(config);
 
   /* Robot Variables */
   //private final SendableChooser<Command> autoChooser;
   public RobotContainer() {
     
     configureBindings();
-
-    final SubsystemConfig config = new SubsystemConfig();
-
-    config.setID(1)
-      .setName("test")
-      .setSCInfo(new SparkControllerInfo().elevator());
-
-    final Test test = new Test(config);
-
-    this.test = test;
 
   /* 
     autoChooser = AutoBuilder.buildAutoChooser(); // Default auto will be `Commands.none()`

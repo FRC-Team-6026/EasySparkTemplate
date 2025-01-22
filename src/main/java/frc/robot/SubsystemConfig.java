@@ -1,26 +1,35 @@
 package frc.robot;
 
 import frc.lib.configs.Sparkmax.SparkControllerInfo;
+import frc.robot.Constants.ConstantsBase;
 
 public class SubsystemConfig {
 
     public int id;
     public String name;
     public SparkControllerInfo scInfo;
+    public ConstantsBase constants;
 
-    public SubsystemConfig setID(int id) {
+    public SubsystemConfig(int id, String name, SparkControllerInfo scInfo, ConstantsBase constants) {
         this.id = id;
-        return this;
-    }
-
-    public SubsystemConfig setName(String name) {
         this.name = name;
-        return this;
+        this.scInfo = scInfo;
+        this.constants = constants;
     }
 
-    public SubsystemConfig setSCInfo(SparkControllerInfo scInfo) {
-        this.scInfo = scInfo;
-        return this;
-    }
+    // private SubsystemConfig setID(int id) {
+    //     this.id = id;
+    //     return this;
+    // }
+
+    // private SubsystemConfig setName(String name) {
+    //     this.name = name;
+    //     return this;
+    // }
+
+    // private SubsystemConfig setSCInfo(SparkControllerInfo scInfo) {
+    //     this.scInfo = scInfo;
+    //     return this;
+    // }
 
 }
