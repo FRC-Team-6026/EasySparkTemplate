@@ -8,8 +8,19 @@ import edu.wpi.first.math.util.Units;
 import frc.lib.util.CANSparkMaxUtil.Usage;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
+
 public final class Constants {
     /* Used for Constants Used Once On Initialization of Robot or Subsystems */
+
+    /* TODO - Feedback notes.
+     * I was worried about the use of static causing all subsystems to share the same variables, but I think
+     * the creation of separate classes that extend it means that won't be a problem.
+     * I'm interested in trying to make this a record, however, and creating instances of it rather than
+     * whole separate classes. It would be really neat to be able to just, define a whole subsystem within its
+     * own class, by setting its constantsBase to a new instance inline.
+     * As long as all of our subsystems can utilize the same set of variable types,
+     * that'll work. Otherwise, we'll probably stick with this way of doing things.
+     */
     public abstract static class ConstantsBase {
         public static final Usage usage = Usage.kAll;
 
@@ -32,7 +43,9 @@ public final class Constants {
         public static final double voltageComp = 12.0;
     }
 
-    public final static class Setup extends ConstantsBase {
+    // TODO - Feedback notes.
+    // Setup shouldn't extend ConstantsBase, since it's not a subset but rather a separate set of variables.
+    public final static class Setup {
 
         /* Swerve Module Ids and Constants */
         public static final int[] moduleIDs = new int[] {0, 1, 2, 3};
