@@ -1,8 +1,10 @@
 package frc.lib.configs.Sparkmax;
 
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+
 import frc.lib.util.CANSparkMaxUtil.Usage;
-import frc.robot.Constants.*;
+import frc.lib.EasySpark.EasySparkControllerInfo;
+import frc.lib.EasySpark.EasySparkConstants;
 
 public class SparkControllerInfo {
     public Usage canbusUse;
@@ -14,49 +16,33 @@ public class SparkControllerInfo {
     public double[] pidList;
     public double voltageComp;
 
-    public SparkControllerInfo drive(){
-        canbusUse = Usages.driveUsage;
-        currentLim = Electical.driveCurrentLim;
-        invert = Setup.driveInvert;
-        idleMode = IdleModes.driveIdle;
-        posConversion = ConversionFactors.driveConversionPositionFactor;
-        velConversion = ConversionFactors.driveConversionVelocityFactor;
-        pidList = PID.drivePID;
-        voltageComp = Electical.voltageComp;
-        return this;
-    }
+    public SparkControllerInfo scInfo;
 
-    public SparkControllerInfo angle(){
-        canbusUse = Usages.angleUsage;
-        currentLim = Electical.angleCurrentLim;
-        invert = Setup.angleInvert;
-        idleMode = IdleModes.angleIdle;
-        posConversion = ConversionFactors.angleConversionPositionFactor;
-        velConversion = ConversionFactors.angleConversionVelocityFactor;
-        pidList = PID.anglePID;
-        voltageComp = Electical.voltageComp;
-        return this;
-    }
+    // public SparkControllerInfo drive(){
+    //     canbusUse = Usages.driveUsage;
+    //     currentLim = Electical.driveCurrentLim;
+    //     invert = Setup.driveInvert;
+    //     idleMode = IdleModes.driveIdle;
+    //     posConversion = ConversionFactors.driveConversionPositionFactor;
+    //     velConversion = ConversionFactors.driveConversionVelocityFactor;
+    //     pidList = PID.drivePID;
+    //     voltageComp = Electical.voltageComp;
+    //     return this;
+    // }
 
-    public SparkControllerInfo prototype(){
-        canbusUse = Usages.prototype;
-        currentLim = Electical.prototypeLim;
-        invert = Setup.prototypeInvert;
-        idleMode = IdleModes.prototype;
-        pidList = PID.prototypePID;
-        voltageComp = Electical.voltageComp;
-        return this;
-    }
+    // public SparkControllerInfo angle(){
+    //     canbusUse = Usages.angleUsage;
+    //     currentLim = Electical.angleCurrentLim;
+    //     invert = Setup.angleInvert;
+    //     idleMode = IdleModes.angleIdle;
+    //     posConversion = ConversionFactors.angleConversionPositionFactor;
+    //     velConversion = ConversionFactors.angleConversionVelocityFactor;
+    //     pidList = PID.anglePID;
+    //     voltageComp = Electical.voltageComp;
+    //     return this;
+    // }
 
-    public SparkControllerInfo elevator(){
-        canbusUse = Elevator.usage;
-        currentLim = Elevator.currentLim;
-        invert = Elevator.invert;
-        idleMode = Elevator.idleMode;
-        posConversion = Elevator.posConversion;
-        velConversion = Elevator.velConversion;
-        pidList = Elevator.PID;
-        voltageComp = Elevator.voltageComp;
-        return this;
+    public SparkControllerInfo(EasySparkConstants constants) {
+        this.scInfo = new EasySparkControllerInfo(this, constants).scInfo;
     }
 }

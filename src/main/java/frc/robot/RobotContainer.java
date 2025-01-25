@@ -19,12 +19,9 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
-import frc.lib.configs.Sparkmax.SparkControllerInfo;
-
 import frc.robot.subsystems.Swerve;
 import frc.robot.subsystems.Test;
 import frc.robot.subsystems.Limelight;
-import frc.robot.subsystems.Prototype;
 
 import frc.robot.commands.DefaultCommands.TeleopSwerve;
 
@@ -59,8 +56,7 @@ public class RobotContainer {
   private final Swerve swerve = new Swerve();
   private final Limelight speakerLimelight = new Limelight("limelight");
   
-  private final SubsystemConfig[] config = {new SubsystemConfig(17, "Test", new SparkControllerInfo().elevator(), new Constants.Elevator())};
-  private final Test test = new Test(config);
+  private final Test test = new Test();
 
   /* Robot Variables */
   //private final SendableChooser<Command> autoChooser;
