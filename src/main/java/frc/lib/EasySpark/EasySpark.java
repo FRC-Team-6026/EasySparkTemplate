@@ -21,6 +21,25 @@ public class EasySpark {
 
     public CANcoder CANcoder;
     
+    /**
+     * This creates an instance of EasySpark. It contains the SparkMax configuration mess
+     * all in one neat-and-tidy package for immediate and easy use.
+     * 
+     * @param id Idk why you would need this but the ID is here.
+     * @param name Same as above.
+     * @param scInfo Gives the SparkControllerInfo of the SparkMax.
+     * @param constants Gives the constants of the motor/subsystem.
+     * 
+     * @param controller Returns the SparkController object of the SparkMax.
+     * @param encoder Returns the RelativeEncoder of said SparkMax.
+     * @param PIDcontroller Returns the PIDController of the SparkMax.
+     * 
+     * @param CANcoder If there is a CANcoder, this will return the CANcoder.
+     * 
+     * @see EasySparkConfig
+     * @see EasySparkConstants
+     * @see EasySparkControllerInfo
+     */
     public EasySpark(EasySparkConfig config) {
         this.id = config.id();
         this.name = config.name();

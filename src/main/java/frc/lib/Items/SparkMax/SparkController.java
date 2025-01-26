@@ -34,7 +34,6 @@ public class SparkController {
     public boolean fEnable = false;
     public boolean bEnable = false;
 
-
     /* Creates and Configures the Sparkmax Controller*/
     public SparkController(int canbusNumber, SparkControllerInfo Info){
         this.canbusNumber = canbusNumber;
@@ -106,29 +105,6 @@ public class SparkController {
         
         spark.configure(config, ResetMode.kResetSafeParameters, null);
         spark.getEncoder().setPosition(0.0);
-
-        /* 2024 -> 2025 import change. Configuration moved to a whole separate object.
-
-        spark.restoreFactoryDefaults();
-        CANSparkMaxUtil.setCANSparkMaxBusUsage(spark, canbusUse);
-        spark.setSmartCurrentLimit(currentLim);
-        spark.setInverted(invert);
-        spark.setIdleMode(idleMode);
-        sparkEncode.setVelocityConversionFactor(velConversion);
-        sparkEncode.setPositionConversionFactor(posConversion);
-        sparkControl.setP(pidList[0]);
-        sparkControl.setI(pidList[1]);
-        sparkControl.setD(pidList[2]);
-        sparkControl.setFF(pidList[3]);
-        spark.enableVoltageCompensation(voltageComp);
-        sparkControl.setOutputRange(min, max);
-        spark.setSoftLimit(SoftLimitDirection.kForward, ((float)fLim));
-        spark.setSoftLimit(SoftLimitDirection.kReverse, ((float)bLim));
-        spark.enableSoftLimit(SoftLimitDirection.kForward, fEnable);
-        spark.enableSoftLimit(SoftLimitDirection.kReverse, bEnable);
-        spark.burnFlash();
-        sparkEncode.setPosition(0.0);
-         */
     }
     
 }

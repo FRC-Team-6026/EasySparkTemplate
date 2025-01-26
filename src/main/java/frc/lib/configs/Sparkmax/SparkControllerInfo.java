@@ -18,30 +18,11 @@ public class SparkControllerInfo {
 
     public SparkControllerInfo scInfo;
 
-    // public SparkControllerInfo drive(){
-    //     canbusUse = Usages.driveUsage;
-    //     currentLim = Electical.driveCurrentLim;
-    //     invert = Setup.driveInvert;
-    //     idleMode = IdleModes.driveIdle;
-    //     posConversion = ConversionFactors.driveConversionPositionFactor;
-    //     velConversion = ConversionFactors.driveConversionVelocityFactor;
-    //     pidList = PID.drivePID;
-    //     voltageComp = Electical.voltageComp;
-    //     return this;
-    // }
-
-    // public SparkControllerInfo angle(){
-    //     canbusUse = Usages.angleUsage;
-    //     currentLim = Electical.angleCurrentLim;
-    //     invert = Setup.angleInvert;
-    //     idleMode = IdleModes.angleIdle;
-    //     posConversion = ConversionFactors.angleConversionPositionFactor;
-    //     velConversion = ConversionFactors.angleConversionVelocityFactor;
-    //     pidList = PID.anglePID;
-    //     voltageComp = Electical.voltageComp;
-    //     return this;
-    // }
-
+    /**
+     * Creates an object with all the info used to make an instance of a SparkMax. It uses the
+     * EasySparkControllerInfo constructor to inject the EasySpark Constants into the SparkControllerInfo
+     * object.
+     */
     public SparkControllerInfo(EasySparkConstants constants) {
         this.scInfo = new EasySparkControllerInfo(this, constants).scInfo;
     }

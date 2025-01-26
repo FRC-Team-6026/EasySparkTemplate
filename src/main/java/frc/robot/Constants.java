@@ -9,18 +9,6 @@ import edu.wpi.first.math.util.Units;
 public final class Constants {
     /* Used for Constants Used Once On Initialization of Robot or Subsystems */
 
-    /* TODO - Feedback notes.
-     * I was worried about the use of static causing all subsystems to share the same variables, but I think
-     * the creation of separate classes that extend it means that won't be a problem.
-     * I'm interested in trying to make this a record, however, and creating instances of it rather than
-     * whole separate classes. It would be really neat to be able to just, define a whole subsystem within its
-     * own class, by setting its EasySparkConstants to a new instance inline.
-     * As long as all of our subsystems can utilize the same set of variable types,
-     * that'll work. Otherwise, we'll probably stick with this way of doing things.
-     */
-
-    // TODO - Feedback notes.
-    // Setup shouldn't extend EasySparkConstants, since it's not a subset but rather a separate set of variables.
     public final static class Setup {
 
         /* Swerve Module Ids and Constants */
@@ -112,66 +100,4 @@ public final class Constants {
         public static final double kPThetaController = 1;
     
     }
-
-    // public final static class Electical extends EasySparkConstants {
-
-    //     /* Base 12 Volt System */
-    //     public static final double voltageComp = 12.0;
-
-    //     /* Swerve Electrical Limits */
-    //     public static final int driveCurrentLim = 40;
-    //     public static final int angleCurrentLim = 20;
-        
-    //     /* Subsystems */
-    //     public static final int prototypeLim = 20;  // TODO - check prototype part for actual values
-    // }
-    
-    // public final static class PID extends EasySparkConstants {
-
-    //     /* Format {P, I, D, FF} */
-
-    //     /* Swerve PIDs */
-    //     public static final double[] drivePID = new double[] {0.3, 0.0, 0.0, 0.0};
-    //     public static final double[] anglePID = new double[] {0.01, 0.0, 0.0, 0.0};
-        
-    //     /* Subsystems */
-    //     public static final double[] prototypePID = new double[] {0.05, 0.0, 0.0, 0.0}; // TODO - check prototype part for actual values
-
-    // }
-
-    // public final static class SVA extends EasySparkConstants {
-
-    //     /* {Static, Velocity, Acceleration} */    /* format: Ks, Kv, Ka */
-    //     /* Swerve */
-    //     // public static final double[] driveMotorsSVA = new double[] {0.3, 2.55, 0.27};    // Last year's SVA values. 
-    //     //TODO - Talk to MR.Mills about changing the new calculated Ka value wich is 0.272380514 or 0.25 to 0.30
-    //     public static final double[] driveMotorsSVA = new double[] {0.2, 2.57, 0.29};
-        
-    // }
-
-    // public final static class ConversionFactors extends EasySparkConstants {
-    //     /* All numbers in 1 output to required input, or one wheel spin to motor spin */
-
-    //     /* Swerve Drive Conversions */
-    //     public static final double driveConversionPositionFactor = Swerve.wheelCircimference / Swerve.driveGearRatio;
-    //     public static final double driveConversionVelocityFactor = driveConversionPositionFactor / 60 ; //rpm to rps
-        
-    //     public static final double angleConversionPositionFactor = 360.0 / Swerve.angleGearRatio;
-    //     public static final double angleConversionVelocityFactor = angleConversionPositionFactor / 60 ; //rpm to rps
-
-    // }
-
-    // public final static class IdleModes extends EasySparkConstants {
-    //     /* Swerve Idles */
-    //     public static final IdleMode driveIdle = IdleMode.kBrake;
-    //     public static final IdleMode angleIdle = IdleMode.kBrake;
-    //     public static final IdleMode prototype = IdleMode.kBrake; // TODO - check prototype part for actual values
-    // }
-
-    // public final static class Usages extends EasySparkConstants {
-    //     /* Swerve Usages */
-    //     public static final Usage driveUsage = Usage.kAll;
-    //     public static final Usage angleUsage = Usage.kPositionOnly;
-    //     public static final Usage prototype = Usage.kPositionOnly; // TODO - check prototype part for actual values
-    // }
 }

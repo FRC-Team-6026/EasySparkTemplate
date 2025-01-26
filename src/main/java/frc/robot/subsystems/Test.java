@@ -20,7 +20,7 @@ public class Test extends SubsystemBase {
         // For if we want custom variables in the constants
         // I swear this is the only resonable way
 
-        // constants.set("elevatorReduction", 9.0/1.0);
+        // constants.customConstants.put("elevatorReduction", 9.0/1.0);
 
         constants.usage = Usage.kPositionOnly;
         constants.maxVoltage = 5.5;

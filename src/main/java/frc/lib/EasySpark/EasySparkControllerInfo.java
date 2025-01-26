@@ -6,6 +6,16 @@ public class EasySparkControllerInfo {
 
     public SparkControllerInfo scInfo;
     
+    /**
+     * Takes in a SparkControllerInfo Object and injects information into it
+     * automatically from the inputted EasySparkConstants.
+     * 
+     * @param scInfo The SparkControllerInfo Object that you want to change.
+     * @param constants The {@linkplain EasySparkConstants} that will be used for the spark controller.
+     * 
+     * @see EasySpark
+     * @see EasySparkConfig
+     */
     public EasySparkControllerInfo(SparkControllerInfo scInfo, EasySparkConstants constants) {
         scInfo.canbusUse = constants.usage;
         scInfo.currentLim = constants.currentLim;
