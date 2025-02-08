@@ -2,6 +2,7 @@ package frc.lib.EasySpark;
 
 import com.revrobotics.spark.ClosedLoopSlot;
 import com.revrobotics.spark.SparkBase;
+import com.revrobotics.spark.SparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.SparkMax;
@@ -22,6 +23,7 @@ public class EasySpark {
 
     public int id;
     public String name;
+    public SparkMax spark;
     public SparkControllerInfo scInfo;
     public EasySparkConstants constants;
 
@@ -38,6 +40,7 @@ public class EasySpark {
      * 
      * @param id Idk why you would need this but the ID is here.
      * @param name Same as above.
+     * @param spark Is a SparkMax Object.
      * @param scInfo Gives the SparkControllerInfo of the SparkMax.
      * @param constants Gives the constants of the motor/subsystem.
      * 
@@ -55,12 +58,13 @@ public class EasySpark {
     public EasySpark(EasySparkConfig config) {
         this.id = config.id();
         this.name = config.name();
-        this.scInfo = config.scInfo();
-        this.constants = config.constants();
+        this.scInfo = config.scInfo().scInfo;
+        this.constants = config.scInfo().constants;
 
         SparkController controller = new SparkController(config.id(), config.scInfo());
 
         this.controller = controller;
+        this.spark = controller.spark;
         this.encoder = controller.sparkEncode;
         this.PIDcontroller = controller.sparkControl;
 
@@ -82,7 +86,13 @@ public class EasySpark {
         }
     }
 
-
+    public double getVel() {
+        if (this.CANcoder != null) {
+            return this.CANcoder.getVelocity().getValueAsDouble();
+        } else {
+            return this.encoder.getVelocity();
+        }
+    }
 
 
     
@@ -103,6 +113,10 @@ public class EasySpark {
             voltage = constants.maxVoltage;
         }
         PIDcontroller.setReference(voltage, SparkBase.ControlType.kVoltage);
+    }
+
+    public void setPosition(double position) {
+        PIDcontroller.setReference(position, SparkMax.ControlType.kPosition);
     }
     
 } 

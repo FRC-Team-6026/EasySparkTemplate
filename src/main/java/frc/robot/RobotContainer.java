@@ -19,11 +19,11 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
-import frc.robot.subsystems.Swerve;
-import frc.robot.subsystems.Test;
+import frc.robot.subsystems.EasySwerve;
+// import frc.robot.subsystems.Test;
 import frc.robot.subsystems.Limelight;
 
-import frc.robot.commands.DefaultCommands.TeleopSwerve;
+import frc.robot.commands.DefaultCommands.EasyTeleopSwerve;
 
 public class RobotContainer {
   /* Controllers */
@@ -53,10 +53,10 @@ public class RobotContainer {
   
 
   /* Subsystems */
-  private final Swerve swerve = new Swerve();
+  private final EasySwerve swerve = new EasySwerve();
   private final Limelight speakerLimelight = new Limelight("limelight");
   
-  private final Test test = new Test();
+  // private final Test test = new Test();
 
   /* Robot Variables */
   //private final SendableChooser<Command> autoChooser;
@@ -92,7 +92,7 @@ public class RobotContainer {
     swerve.resetToAbsolute();
 
     swerve.setDefaultCommand(
-      new TeleopSwerve(
+      new EasyTeleopSwerve(
         swerve,
         () -> -driver.getRawAxis(translationAxis),
         () -> -driver.getRawAxis(strafeAxis),

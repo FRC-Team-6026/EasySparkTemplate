@@ -17,6 +17,7 @@ public class SparkControllerInfo {
     public double voltageComp;
 
     public SparkControllerInfo scInfo;
+    public EasySparkConstants constants;
 
     /**
      * Creates an object with all the info used to make an instance of a SparkMax. It uses the
@@ -24,6 +25,8 @@ public class SparkControllerInfo {
      * object.
      */
     public SparkControllerInfo(EasySparkConstants constants) {
-        this.scInfo = new EasySparkControllerInfo(this, constants).scInfo;
+        EasySparkControllerInfo escInfo = new EasySparkControllerInfo(this, constants);
+        this.scInfo = escInfo.scInfo;
+        this.constants = escInfo.constants;
     }
 }

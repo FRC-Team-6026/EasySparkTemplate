@@ -5,6 +5,7 @@ import frc.lib.configs.Sparkmax.SparkControllerInfo;
 public class EasySparkControllerInfo {
 
     public SparkControllerInfo scInfo;
+    public EasySparkConstants constants;
     
     /**
      * Takes in a SparkControllerInfo Object and injects information into it
@@ -26,6 +27,7 @@ public class EasySparkControllerInfo {
         scInfo.pidList = constants.PID;
         scInfo.voltageComp = constants.voltageComp;
         this.scInfo = scInfo;
+        this.constants = constants;
     }
 
 }

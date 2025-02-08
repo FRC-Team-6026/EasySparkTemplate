@@ -4,14 +4,15 @@ import com.ctre.phoenix6.hardware.CANcoder;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import frc.lib.EasySpark.EasySparkConstants;
-import frc.lib.Items.SparkMax.SparkController;
+import frc.lib.EasySpark.EasySparkConfig;
+import frc.lib.EasySpark.EasySpark;
 import frc.lib.util.CANSparkMaxUtil.Usage;
 import frc.robot.Constants;
 
-public class SwerveModuleInfo {
+public class EasySwerveModuleInfo {
     public int moduleNumber;
-    public SparkController drive;
-    public SparkController angle;
+    public EasySpark drive;
+    public EasySpark angle;
     public CANcoder cancoder;
     public double angleOffset;
     public double xPos;
@@ -20,11 +21,8 @@ public class SwerveModuleInfo {
      * @param moduleNumber
      */
 
-    public SwerveModuleInfo(int moduleNumber){
+    public EasySwerveModuleInfo(int moduleNumber){
         this.moduleNumber = moduleNumber;
-
-        // drive = new SparkController(Constants.Setup.driveMotors[moduleNumber], new SparkControllerInfo().drive());
-        // angle = new SparkController(Constants.Setup.angleMotors[moduleNumber], new SparkControllerInfo().angle());
 
         EasySparkConstants driveConstants = new EasySparkConstants();
         driveConstants.idleMode = IdleMode.kBrake;
@@ -41,11 +39,14 @@ public class SwerveModuleInfo {
         angleConstants.velConversion = angleConstants.posConversion / 60;
         angleConstants.PID = new double[] {0.01, 0.0, 0.0, 0.0};
 
-        drive = new SparkController(Constants.Setup.driveMotors[moduleNumber], new SparkControllerInfo(driveConstants));
-        angle = new SparkController(Constants.Setup.angleMotors[moduleNumber], new SparkControllerInfo(angleConstants));
-
         cancoder = new CANcoder(Constants.Setup.moduleCancoders[moduleNumber]);
         angleOffset = Constants.Setup.angleOffsets[moduleNumber];
         xPos = Constants.Setup.xposition[moduleNumber];
+
+        EasySparkConfig driveConfig = new EasySparkConfig(Constants.Setup.angleMotors[moduleNumber], "driveMotor " + moduleNumber, new SparkControllerInfo(driveConstants), cancoder);
+        EasySparkConfig angleConfig = new EasySparkConfig(Constants.Setup.angleMotors[moduleNumber], "angleMotor " + moduleNumber, new SparkControllerInfo(angleConstants), cancoder);
+
+        drive = new EasySpark(driveConfig);
+        angle = new EasySpark(angleConfig);
     }
 }

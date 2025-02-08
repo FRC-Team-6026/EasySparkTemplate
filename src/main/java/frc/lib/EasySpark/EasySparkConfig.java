@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.DutyCycleEncoder;
  * @see EasySpark
  * @see EasySparkConstants
  */
-public record EasySparkConfig(int id, String name, SparkControllerInfo scInfo, EasySparkConstants constants, CANcoder CANcoder, DutyCycleEncoder DutyCycleEncoder) {
+public record EasySparkConfig(int id, String name, SparkControllerInfo scInfo, CANcoder CANcoder, DutyCycleEncoder DutyCycleEncoder) {
 
     /**
      * This is a config object used to create an EasySpark instance.
@@ -32,8 +32,8 @@ public record EasySparkConfig(int id, String name, SparkControllerInfo scInfo, E
      * @see EasySpark
      * @see EasySparkConstants
      */
-    public EasySparkConfig(int id, String name, SparkControllerInfo scInfo, EasySparkConstants constants) {
-        this(id, name, scInfo, constants, null, null);
+    public EasySparkConfig(int id, String name, SparkControllerInfo scInfo) {
+        this(id, name, scInfo, null, null);
     }
 
     /**
@@ -49,8 +49,8 @@ public record EasySparkConfig(int id, String name, SparkControllerInfo scInfo, E
      * @see EasySpark
      * @see EasySparkConstants
      */
-    public EasySparkConfig(int id, String name, SparkControllerInfo scInfo, EasySparkConstants constants, CANcoder CANcoder) {
-        this(id, name, scInfo, constants, CANcoder, null);
+    public EasySparkConfig(int id, String name, SparkControllerInfo scInfo, CANcoder CANcoder) {
+        this(id, name, scInfo, CANcoder, null);
     }
 
     /**
@@ -66,8 +66,8 @@ public record EasySparkConfig(int id, String name, SparkControllerInfo scInfo, E
      * @see EasySpark
      * @see EasySparkConstants
      */
-    public EasySparkConfig(int id, String name, SparkControllerInfo scInfo, EasySparkConstants constants, DutyCycleEncoder DutyCycleEncoder) {
-        this(id, name, scInfo, constants, null, DutyCycleEncoder);
+    public EasySparkConfig(int id, String name, SparkControllerInfo scInfo, DutyCycleEncoder DutyCycleEncoder) {
+        this(id, name, scInfo, null, DutyCycleEncoder);
     }
 
 }
