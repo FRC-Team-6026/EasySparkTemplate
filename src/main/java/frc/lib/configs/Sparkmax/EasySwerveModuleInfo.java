@@ -43,7 +43,7 @@ public class EasySwerveModuleInfo {
         angleOffset = Constants.Setup.angleOffsets[moduleNumber];
         xPos = Constants.Setup.xposition[moduleNumber];
 
-        EasySparkConfig driveConfig = new EasySparkConfig(Constants.Setup.angleMotors[moduleNumber], "driveMotor " + moduleNumber, new SparkControllerInfo(driveConstants), cancoder);
+        EasySparkConfig driveConfig = new EasySparkConfig(Constants.Setup.driveMotors[moduleNumber], "driveMotor " + moduleNumber, new SparkControllerInfo(driveConstants), cancoder);
         EasySparkConfig angleConfig = new EasySparkConfig(Constants.Setup.angleMotors[moduleNumber], "angleMotor " + moduleNumber, new SparkControllerInfo(angleConstants), cancoder);
 
         drive = new EasySpark(driveConfig);

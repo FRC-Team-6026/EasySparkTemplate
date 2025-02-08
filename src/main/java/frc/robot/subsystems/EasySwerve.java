@@ -49,6 +49,8 @@ public class EasySwerve extends SubsystemBase {
         gyro.reset();
         zeroGyro();
 
+        this.mSwerveMods = new EasySwerveModule[4];
+
         for(int i = 0; i <= 3; i++){
             this.mSwerveMods[i] = new EasySwerveModule(new EasySwerveModuleInfo(i));
         }
@@ -65,6 +67,7 @@ public class EasySwerve extends SubsystemBase {
     }
 
 
+    
     public void drive(Translation2d translation, double rotation, boolean fieldRelative, boolean isOpenLoop) {
         SwerveModuleState[] swerveModuleStates =
             Constants.Swerve.swerveKinematics.toSwerveModuleStates(

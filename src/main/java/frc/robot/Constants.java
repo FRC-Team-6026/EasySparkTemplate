@@ -58,7 +58,7 @@ public final class Constants {
 
         /* Speed Settings */
         public static final double maxSpeed = 5.00; // meters per second
-        public static final double maxAngularVelocity = 7; // radians per second (was 4.25, changed because turn speed suddenly dropped)
+        public static final double maxAngularVelocity = 7.0; // radians per second (was 4.25, changed because turn speed suddenly dropped)
 
         /* Mk4i Module Gear Ratios */
         public static final double driveGearRatio = (6.75 / 1.0); // 6.75:1
