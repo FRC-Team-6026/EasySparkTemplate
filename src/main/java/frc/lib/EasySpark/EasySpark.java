@@ -1,23 +1,16 @@
 package frc.lib.EasySpark;
 
-import com.revrobotics.spark.ClosedLoopSlot;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkClosedLoopController;
-import com.revrobotics.spark.SparkMax;
 
-import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.kinematics.SwerveModulePosition;
-import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.DutyCycleEncoder;
 
 import com.ctre.phoenix6.hardware.CANcoder;
 
 import frc.lib.Items.SparkMax.SparkController;
 import frc.lib.configs.Sparkmax.SparkControllerInfo;
-import frc.lib.math.OnboardModuleState;
-import frc.robot.Constants;
 
 public class EasySpark {
 
@@ -40,11 +33,11 @@ public class EasySpark {
      * 
      * @param id Idk why you would need this but the ID is here.
      * @param name Same as above.
-     * @param spark Is a SparkMax Object.
      * @param scInfo Gives the SparkControllerInfo of the SparkMax.
      * @param constants Gives the constants of the motor/subsystem.
      * 
      * @param controller Returns the SparkController object of the SparkMax.
+     * @param spark Is a SparkMax Object.
      * @param encoder Returns the RelativeEncoder of said SparkMax.
      * @param PIDcontroller Returns the PIDController of the SparkMax.
      * 
@@ -58,10 +51,10 @@ public class EasySpark {
     public EasySpark(EasySparkConfig config) {
         this.id = config.id();
         this.name = config.name();
-        this.scInfo = config.scInfo().scInfo;
-        this.constants = config.scInfo().constants;
+        this.scInfo = config.escInfo().scInfo;
+        this.constants = config.escInfo().constants;
 
-        SparkController controller = new SparkController(config.id(), config.scInfo());
+        SparkController controller = new SparkController(config.id(), config.escInfo().scInfo);
 
         this.controller = controller;
         this.spark = controller.spark;

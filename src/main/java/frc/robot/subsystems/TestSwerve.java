@@ -2,9 +2,6 @@ package frc.robot.subsystems;
 
 import com.kauailabs.navx.frc.AHRS;
 //import com.pathplanner.lib.auto.AutoBuilder;
-import com.pathplanner.lib.config.RobotConfig;
-import com.pathplanner.lib.util.PathPlannerLogging;
-import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -16,7 +13,6 @@ import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.units.Measure;
 import edu.wpi.first.units.measure.Voltage;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -24,19 +20,14 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
-import frc.lib.EasySpark.EasySpark;
-import frc.lib.EasySpark.EasySparkConfig;
-import frc.lib.EasySpark.EasySparkConstants;
-import frc.lib.configs.Sparkmax.SparkControllerInfo;
-import frc.lib.configs.Sparkmax.EasySwerveModuleInfo;
-import frc.lib.util.CANSparkMaxUtil.Usage;
+import frc.lib.configs.Sparkmax.TestSwerveModuleInfo;
 import frc.robot.Constants;
 
-public class EasySwerve extends SubsystemBase {
+public class TestSwerve extends SubsystemBase {
     private final AHRS gyro;
   
     private SwerveDriveOdometry swerveOdometry;
-    private EasySwerveModule[] mSwerveMods;
+    private TestSwerveModule[] mSwerveMods;
   
     private boolean isX = false;
   
@@ -44,15 +35,15 @@ public class EasySwerve extends SubsystemBase {
     
     private Field2d field = new Field2d();
     
-    public EasySwerve() {
+    public TestSwerve() {
         gyro = new AHRS();
         gyro.reset();
         zeroGyro();
 
-        this.mSwerveMods = new EasySwerveModule[4];
+        this.mSwerveMods = new TestSwerveModule[4];
 
         for(int i = 0; i <= 3; i++){
-            this.mSwerveMods[i] = new EasySwerveModule(new EasySwerveModuleInfo(i));
+            this.mSwerveMods[i] = new TestSwerveModule(new TestSwerveModuleInfo(i));
         }
 
         swerveOdometry = new SwerveDriveOdometry(Constants.Swerve.swerveKinematics, getAngle(), getPositions());
@@ -77,7 +68,7 @@ public class EasySwerve extends SubsystemBase {
                     : new ChassisSpeeds(translation.getX(), translation.getY(), rotation));
 
         SwerveDriveKinematics.desaturateWheelSpeeds(swerveModuleStates, Constants.Swerve.maxSpeed);
-            for (EasySwerveModule mod : mSwerveMods) {
+            for (TestSwerveModule mod : mSwerveMods) {
             if(isX){
                 mod.setDesiredState(mod.xState, isOpenLoop);
             } else {
@@ -94,7 +85,7 @@ public class EasySwerve extends SubsystemBase {
     public void setModuleStates(SwerveModuleState[] desiredStates) {
         SwerveDriveKinematics.desaturateWheelSpeeds(desiredStates, Constants.Swerve.maxSpeed);
     
-        for (EasySwerveModule mod : mSwerveMods) {
+        for (TestSwerveModule mod : mSwerveMods) {
             mod.setDesiredState(desiredStates[mod.moduleNumber], false);
         }
     }
@@ -112,7 +103,7 @@ public class EasySwerve extends SubsystemBase {
     }
 
     public void report(){
-        for (EasySwerveModule mod : mSwerveMods) {
+        for (TestSwerveModule mod : mSwerveMods) {
             SmartDashboard.putNumber(
                 "Mod " + mod.moduleNumber + " Cancoder", mod.getCanCoder().getDegrees());
             SmartDashboard.putNumber(
@@ -144,7 +135,7 @@ public class EasySwerve extends SubsystemBase {
 
     public SwerveModuleState[] getStates() {
         SwerveModuleState[] states = new SwerveModuleState[4];
-        for (EasySwerveModule mod : mSwerveMods) {
+        for (TestSwerveModule mod : mSwerveMods) {
           states[mod.moduleNumber] = mod.getState();
         }
         return states;
@@ -152,7 +143,7 @@ public class EasySwerve extends SubsystemBase {
     
     public SwerveModulePosition[] getPositions() {
         SwerveModulePosition[] positions = new SwerveModulePosition[4];
-        for (EasySwerveModule mod : mSwerveMods) {
+        for (TestSwerveModule mod : mSwerveMods) {
             positions[mod.moduleNumber] = mod.getPostion();
         }
         return positions;
@@ -183,7 +174,7 @@ public class EasySwerve extends SubsystemBase {
 
 
     public void resetToAbsolute() {
-        for (EasySwerveModule mod : mSwerveMods) {
+        for (TestSwerveModule mod : mSwerveMods) {
             mod.resetToAbsolute();
         }
     }

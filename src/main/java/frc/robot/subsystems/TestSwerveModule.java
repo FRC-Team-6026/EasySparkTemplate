@@ -1,10 +1,7 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix6.hardware.CANcoder;
 import com.revrobotics.spark.SparkMax;
-import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.ClosedLoopSlot;
-import com.revrobotics.spark.SparkClosedLoopController;
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
@@ -12,12 +9,11 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.units.Measure;
 import edu.wpi.first.units.measure.Voltage;
 import frc.robot.Constants;
-import frc.lib.Items.SparkMax.SparkController;
 import frc.lib.math.OnboardModuleState;
 import frc.lib.EasySpark.EasySpark;
-import frc.lib.configs.Sparkmax.EasySwerveModuleInfo;
+import frc.lib.configs.Sparkmax.TestSwerveModuleInfo;
 
-public class EasySwerveModule {
+public class TestSwerveModule {
     public int moduleNumber;
     private Rotation2d lastAngle;
     private Rotation2d angleOffset;
@@ -31,7 +27,7 @@ public class EasySwerveModule {
         new SimpleMotorFeedforward(
             Constants.Swerve.driveMotorsSVA[0], Constants.Swerve.driveMotorsSVA[1], Constants.Swerve.driveMotorsSVA[2]);
 
-    public EasySwerveModule(EasySwerveModuleInfo Info) {
+    public TestSwerveModule(TestSwerveModuleInfo Info) {
         this.moduleNumber = Info.moduleNumber;
         this.angleOffset = Rotation2d.fromDegrees(Info.angleOffset);
 

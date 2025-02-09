@@ -5,12 +5,12 @@ import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
-import frc.robot.subsystems.EasySwerve;
+import frc.robot.subsystems.TestSwerve;
 import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
 
-public class EasyTeleopSwerve extends Command {
-    private EasySwerve s_Swerve;
+public class TestTeleopSwerve extends Command {
+    private TestSwerve s_Swerve;
     private DoubleSupplier translationSup;
     private DoubleSupplier strafeSup;
     private DoubleSupplier rotationSup;
@@ -20,8 +20,8 @@ public class EasyTeleopSwerve extends Command {
     private SlewRateLimiter strafeLimiter = new SlewRateLimiter(2.0);
     private SlewRateLimiter rotationLimiter = new SlewRateLimiter(2.0);
 
-    public EasyTeleopSwerve(
-        EasySwerve s_Swerve,
+    public TestTeleopSwerve(
+        TestSwerve s_Swerve,
         DoubleSupplier translationSup,
         DoubleSupplier strafeSup,
         DoubleSupplier rotationSup,

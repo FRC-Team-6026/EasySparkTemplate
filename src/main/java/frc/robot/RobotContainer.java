@@ -7,7 +7,6 @@ package frc.robot;
 //import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -19,11 +18,11 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
-import frc.robot.subsystems.EasySwerve;
+import frc.robot.subsystems.TestSwerve;
 // import frc.robot.subsystems.Test;
 import frc.robot.subsystems.Limelight;
 
-import frc.robot.commands.DefaultCommands.EasyTeleopSwerve;
+import frc.robot.commands.DefaultCommands.TestTeleopSwerve;
 
 public class RobotContainer {
   /* Controllers */
@@ -53,7 +52,7 @@ public class RobotContainer {
   
 
   /* Subsystems */
-  private final EasySwerve swerve = new EasySwerve();
+  private final TestSwerve swerve = new TestSwerve();
   private final Limelight speakerLimelight = new Limelight("limelight");
   
   // private final Test test = new Test();
@@ -92,7 +91,7 @@ public class RobotContainer {
     swerve.resetToAbsolute();
 
     swerve.setDefaultCommand(
-      new EasyTeleopSwerve(
+      new TestTeleopSwerve(
         swerve,
         () -> -driver.getRawAxis(translationAxis),
         () -> -driver.getRawAxis(strafeAxis),
