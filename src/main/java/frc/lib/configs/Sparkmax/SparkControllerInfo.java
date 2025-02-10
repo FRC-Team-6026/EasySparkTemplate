@@ -27,7 +27,7 @@ public class SparkControllerInfo {
     public SparkControllerInfo(EasySparkConstants constants) {
         EasySparkControllerInfo escInfo = new EasySparkControllerInfo(this, constants);
 
-        // Redundant Code
+        // DEPRECATED - Unnecessary lines of code.
         this.scInfo = escInfo.scInfo;
         this.constants = escInfo.constants;
     }
