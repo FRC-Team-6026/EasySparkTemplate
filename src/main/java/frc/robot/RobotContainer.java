@@ -7,6 +7,8 @@ package frc.robot;
 //import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 
+import com.easyspark.frc.EasySpark;
+
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;

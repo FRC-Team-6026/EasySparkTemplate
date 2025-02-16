@@ -1,0 +1,20 @@
+{
+    "fileName": "EasySpark-1.0.1-Beta.json",
+    "name": "EasySpark",
+    "version": "1.0.1-Beta",
+    "uuid": "ce152c0a-8db3-40c2-9968-3627a7d5d4de",
+    "frcYear": "2025",
+    "mavenUrls": [
+        "https://raw.githubusercontent.com/FRC-Team-6026/EasySpark-Packages/main/2025/"
+    ],
+    "jsonUrl": "https://raw.githubusercontent.com/FRC-Team-6026/EasySpark-Packages/main/2025/EasySpark-Latest.json",
+    "javaDependencies": [
+        {
+            "groupId": "com.easyspark.frc",
+            "artifactId": "easyspark-java",
+            "version": "1.0.1-Beta"
+        }
+    ],
+    "jniDependencies": [],
+    "cppDependencies": []
+}
