@@ -7,7 +7,7 @@
     "mavenUrls": [
         "https://raw.githubusercontent.com/FRC-Team-6026/EasySpark-Packages/main/2025/"
     ],
-    "jsonUrl": "https://raw.githubusercontent.com/FRC-Team-6026/EasySpark-Packages/main/2025/EasySpark-Latest.json",
+    "jsonUrl": "https://raw.githubusercontent.com/FRC-Team-6026/EasySpark-Packages/main/2025/Versions.json",
     "javaDependencies": [
         {
             "groupId": "com.easyspark.frc",
