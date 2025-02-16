@@ -10,7 +10,7 @@ import edu.wpi.first.units.Measure;
 import edu.wpi.first.units.measure.Voltage;
 import frc.robot.Constants;
 import frc.lib.math.OnboardModuleState;
-import frc.lib.EasySpark.EasySpark;
+import com.easyspark.frc.EasySpark;
 import frc.lib.configs.Sparkmax.TestSwerveModuleInfo;
 
 public class TestSwerveModule {

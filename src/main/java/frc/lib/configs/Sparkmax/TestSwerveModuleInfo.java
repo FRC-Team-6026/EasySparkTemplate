@@ -3,11 +3,11 @@ package frc.lib.configs.Sparkmax;
 import com.ctre.phoenix6.hardware.CANcoder;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
-import frc.lib.EasySpark.EasySparkControllerInfo;
-import frc.lib.EasySpark.EasySparkConstants;
-import frc.lib.EasySpark.EasySparkConfig;
-import frc.lib.EasySpark.EasySpark;
-import frc.lib.util.CANSparkMaxUtil.Usage;
+import com.easyspark.frc.EasySparkControllerInfo;
+import com.easyspark.frc.EasySparkConstants;
+import com.easyspark.frc.EasySparkConfig;
+import com.easyspark.frc.EasySpark;
+import com.easyspark.frc.CANSparkMaxUtil.Usage;
 import frc.robot.Constants;
 
 public class TestSwerveModuleInfo {
