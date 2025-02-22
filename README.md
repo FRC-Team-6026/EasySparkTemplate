@@ -12,4 +12,4 @@ much easier. EasySpark was designed by FRC Team 6026 during the 2025 (***REEFSCA
 It uses some code from our ***TeachingTemplate*** and ***CRECENDO*** Repositories as a base for
 this template.
 
-Visit the documentation for [EasySpark]("https://frc-6026.gitbook.io/easyspark")
+Visit the documentation for [EasySpark](https://frc-6026.gitbook.io/easyspark)
